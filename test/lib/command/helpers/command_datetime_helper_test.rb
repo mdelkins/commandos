@@ -13,7 +13,7 @@ module Commando
         FakeCommand
       end
       
-      class WhenValueIsADateTime < WhenUsingDateTimeHelper
+      class AndValueIsCastableToADateTime < WhenUsingDateTimeHelper
         def sut
           @sut ||= subject.new datetime: "2010-01-04 05:00:14 PM"
         end
@@ -24,9 +24,14 @@ module Commando
         end
       end
 
-      class WhenValueIsNotADateTime < WhenUsingDateTimeHelper
+      class AndValueIsNotCastableToADateTime < WhenUsingDateTimeHelper
         def sut
-          @sut ||= subject.new date: :abc
+          @sut ||= subject.new datetime: :abc
+        end
+
+        def test_value_is_not_a_datetime
+          refute_kind_of DateTime, sut.datetime
+          assert_equal   :abc,     sut.datetime
         end
       end
     end
