@@ -29,7 +29,7 @@ module Commando
         end
       end
 
-      class AndValueIsNotTruthyOrFalsey < WhenUsingBoolHelper
+      class AndValueIsNotCastableToATrueOrFalseValue < WhenUsingBoolHelper
         def sut
           @sut ||= subject.new bool: :abc
         end

@@ -13,7 +13,7 @@ module Commando
         FakeCommand
       end
       
-      class WhenValueIsADate < WhenUsingDateHelper
+      class AndValueIsCastableToADate < WhenUsingDateHelper
         def sut
           @sut ||= subject.new date: "2010-01-04 05:00:14 PM"
         end
@@ -24,7 +24,7 @@ module Commando
         end
       end
 
-      class WhenValueIsNotADate < WhenUsingDateHelper
+      class AndValueIsNotCastableToADate < WhenUsingDateHelper
         def sut
           @sut ||= subject.new date: :abc
         end
