@@ -11,8 +11,8 @@ module Commando
       raise RegistryNotFound unless registry.present?
       raise UnknownCommand   unless command.kind_of? IAmACommand
 
-      yield response_of command, handler: registry.handler_for(command) if block_given?
-      response_of command, handler: registry.handler_for(command)
+      return response_of command, handler: registry.handler_for(command) unless block_given?
+      yield response_of command, handler: registry.handler_for(command)
     end
 
   private
