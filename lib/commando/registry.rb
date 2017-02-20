@@ -5,8 +5,12 @@ module Commando
     end
 
     def [](command)
-      handlers[storage_strategy.call command]
+      handlers[storage_strategy.call command].tap do |handler|
+        yield handler if block_given?
+      end
     end
+
+    alias_method :handler_for, :[]
 
   protected
 
