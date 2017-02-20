@@ -3,6 +3,10 @@ module Commando
     include Virtus.value_object
     include ActiveModel::Validations
 
+    def valid?
+      @valid ||= super
+    end
+
     def self.bool(value, options={})
       attribute value, Axiom::Types::Boolean, options
     end
