@@ -22,8 +22,6 @@ module Commandoes
     extend ClassMethods
 
     use self
-    use Plugins::VirtusPlugin
     use Plugins::ActiveModelPlugin
-
   end
 end

@@ -1,8 +1,10 @@
 module Commandoes
   class FakeCommand < IAmACommand
-    values do
-      string :foo
-      string :bar
+    attr_reader :foo, :bar
+
+    def initialize(foo: nil, bar: nil)
+      @foo = foo
+      @bar = bar
     end
 
     validates_presence_of \
