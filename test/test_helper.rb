@@ -3,6 +3,7 @@ require 'commando'
 
 require_relative './fixtures/fake_command'
 require_relative './fixtures/fake_handler'
+require_relative './fixtures/fake_plugin'
 require_relative './fixtures/fake_registry'
 
 require 'minitest/color'

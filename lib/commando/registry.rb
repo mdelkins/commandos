@@ -5,12 +5,12 @@ module Commando
     end
 
     def [](command)
-      handlers[storage_strategy.call command].tap do |handler|
+      handlers.fetch(storage_strategy.call command) { NullHandler }.tap do |handler|
         yield handler if block_given?
       end
     end
 
-    alias_method :handler_for, :[]
+    alias_method :find_by, :[]
 
   protected
 
@@ -35,11 +35,18 @@ module Commando
   end
 
   class NullHandler
-    def call(command)
+    def initialize(command)
+      @command = command
+    end
+
+    def call
       puts "-" * 65
       puts " NO HANDLER REGISTERED FOR #{command.class.upcase}"
       puts "-" * 65
       puts command.inspect
     end
+
+  private
+    attr_reader :command
   end
 end

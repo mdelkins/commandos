@@ -11,18 +11,19 @@ module Commando
       raise RegistryNotFound unless registry.present?
       raise UnknownCommand   unless command.kind_of? IAmACommand
 
-      return response_of command, handler: registry.handler_for(command) unless block_given?
-      yield response_of command, handler: registry.handler_for(command)
+      registry.find_by command do |handler|
+        handler = handler.new command
+        result  = handler.call
+
+        if block_given?
+          yield result
+        end
+        
+        return result
+      end
     end
 
   private
     attr_reader :registry
-
-    def response_of(command, handler: nil)
-      handler ||= NullHanler
-
-      return command unless command.valid?
-      handler.call command
-    end
   end
 end
