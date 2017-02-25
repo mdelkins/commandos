@@ -1,42 +1,29 @@
 module Commando
   class IAmACommand
-    include Virtus.value_object
     include ActiveModel::Validations
 
-    def valid?
-      @valid ||= super
+    module ClassMethods
+      def use(plugin, *args, &block)
+        unless plugins.include? plugin
+          plugins << plugin
+          extend  plugin::ClassMethods    if plugin.const_defined? :ClassMethods
+          include plugin::InstanceMethods if plugin.const_defined? :InstanceMethods
+        end
+
+        self
+      end
+
+    private
+      def plugins
+        @@pluglins ||= []
+      end
     end
 
-    def self.bool(value, options={})
-      attribute value, Axiom::Types::Boolean, options
-    end
+    extend ClassMethods
 
-    def self.date(value, options={})
-      attribute value, Date, options
-    end
+    use self
+    use Plugins::VirtusPlugin
+    use Plugins::ActiveModelPlugin
 
-    def self.datetime(value, options={})
-      attribute value, DateTime, options
-    end
-
-    def self.decimal(value, options={})
-      attribute value, BigDecimal, options
-    end
-
-    def self.float(value, options={})
-      attribute value, Float, options
-    end
-
-    def self.integer(value, options={})
-      attribute value, Integer, options
-    end
-
-    def self.string(value, options={})
-      attribute value, String, options
-    end
-
-    def self.time(value, options={})
-      attribute value, Time, options
-    end
   end
 end

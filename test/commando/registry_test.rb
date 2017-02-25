@@ -2,18 +2,24 @@ require 'test_helper'
 
 module Commando
   class IAmACommandRegistryTest < Minitest::Test
-    class WhenHandlerForCommandFoundInRegistry < IAmACommandRegistryTest
-      def subject
-        FakeCommandRegistry
-      end
+    def subject
+      FakeCommandRegistry
+    end
 
-      def sut
-        @sut ||= subject.new
-      end
-      
+    def sut
+      @sut ||= subject.new
+    end
+
+    class WhenHandlerForCommandFoundInRegistry < IAmACommandRegistryTest
       def test_correct_handler_returned
-        assert_kind_of FakeHandler, sut[FakeCommand]
-        assert_kind_of FakeHandler, sut[FakeCommand.new]
+        assert_equal FakeHandler, sut[FakeCommand]
+        assert_equal FakeHandler, sut[FakeCommand.new]
+      end
+    end
+
+    class WhenHandlerForCommandNotFoundInRegistry < IAmACommandRegistryTest
+      def test_null_handler_returned
+        assert_equal NullHandler, sut[:foo]
       end
     end
   end
