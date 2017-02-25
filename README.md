@@ -1,4 +1,4 @@
-# COMMANDO
+# COMMANDOES
 
 Commandoes is a project designed to help any ruby app use the command pattern to
 change state.
@@ -7,7 +7,6 @@ change state.
 * ruby-2.3.1
 
 ## DEPENDENCIES
-* Virtus (https://github.com/solnic/virtus)
 * ActiveModel::Validations
 
 ## INSTALLATION
@@ -15,7 +14,7 @@ change state.
 In your Gemfile
 
 ```
-gem 'commando', github: 'mdelkins/commando'
+gem 'commandoes'
 ```
 
 ## EXAMPLES
@@ -28,16 +27,28 @@ gem 'commando', github: 'mdelkins/commando'
 Commandoes uses a plugin system similar to
 [sequel](https://github.com/jeremyevans/sequel) or
 [roda](https://github.com/jeremyevans/roda) to extend the behavior of your
-command objects.  Currently their are two dependent plugins:
+command objects.
 
-* Commandoes::Plugins::VirtusPlugin
-* Commandoes::Plugins::ActiveModelPlugin
+### EXAMPLE OF A CUSTOM PLUGIN
 
-### Commandoes::Plugins::VirtusPlugin
+```ruby
+module Commandoes
+  module Plugins
+    module ExamplePlugin
+      module ClassMethods
+      end
 
-This plugin injects the `Virtus.value_object` behavior into
-`Commandoes::IAmACommand` as well as a few helper methods for easily defining
-typed attributes.
+      module InstanceMethods
+      end
+    end
+  end
+end
+```
+
+Any method in the `ClassMethods` module will be injected into the `IAmACommand`
+class.  Any method in the `InstanceMethods` module will be injected into
+instances of `IAmACommand` objects.
+
 
 ### Commandoes::Plugins::ActiveModelPlugin
 
