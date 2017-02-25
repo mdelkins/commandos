@@ -1,4 +1,4 @@
-module Commando
+module Commandoes
   class FakeHandler
     def initialize(command)
       @command = command

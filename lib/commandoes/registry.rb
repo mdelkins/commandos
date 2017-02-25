@@ -1,4 +1,4 @@
-module Commando
+module Commandoes
   class IAmACommandRegistry
     def initialize(storage: DefaultStorageStrategy)
       @storage = storage
