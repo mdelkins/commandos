@@ -1,5 +1,5 @@
 ```ruby
-class RegisterAccountCommand < Commando::IAmACommand
+class RegisterAccountCommand < Commandoes::IAmACommand
   values do
     string :identity
     string :password
@@ -43,7 +43,7 @@ end
 
 class AccountService
   def initialize
-    @dispatcher = Commando::Dispatcher.new registry: AccountCommandRegistry.new
+    @dispatcher = Commandoes::Dispatcher.new registry: AccountCommandRegistry.new
   end
 
   def register_account(safe_params)

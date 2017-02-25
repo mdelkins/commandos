@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module Commando
+module Commandoes
   class IAmACommandRegistryTest < Minitest::Test
     def subject
       FakeCommandRegistry

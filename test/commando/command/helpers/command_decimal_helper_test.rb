@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module Commando
+module Commandoes
   class IAmACommandTest < Minitest::Test
     class WhenUsingDecimalHelper < IAmACommandTest
       class FakeCommand < IAmACommand

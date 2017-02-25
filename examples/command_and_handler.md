@@ -1,7 +1,7 @@
 # COMMAND & HANDLER
 
 ```ruby
-class RegisterAccountCommand < Commando::IAmACommand
+class RegisterAccountCommand < Commandoes::IAmACommand
   values do
     string :identity
     string :password

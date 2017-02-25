@@ -1,4 +1,4 @@
-module Commando
+module Commandoes
   class IAmACommand
     include ActiveModel::Validations
 

@@ -1,6 +1,6 @@
 # COMMANDO
 
-Commando is a project designed to help any ruby app use the command pattern to
+Commandoes is a project designed to help any ruby app use the command pattern to
 change state.
 
 ## PREREQUISITES
@@ -25,20 +25,20 @@ gem 'commando', github: 'mdelkins/commando'
 
 ## PLUGINS
 
-Commando uses a plugin system similar to
+Commandoes uses a plugin system similar to
 [sequel](https://github.com/jeremyevans/sequel) or
 [roda](https://github.com/jeremyevans/roda) to extend the behavior of your
 command objects.  Currently their are two dependent plugins:
 
-* Commando::Plugins::VirtusPlugin
-* Commando::Plugins::ActiveModelPlugin
+* Commandoes::Plugins::VirtusPlugin
+* Commandoes::Plugins::ActiveModelPlugin
 
-### Commando::Plugins::VirtusPlugin
+### Commandoes::Plugins::VirtusPlugin
 
 This plugin injects the `Virtus.value_object` behavior into
-`Commando::IAmACommand` as well as a few helper methods for easily defining
+`Commandoes::IAmACommand` as well as a few helper methods for easily defining
 typed attributes.
 
-### Commando::Plugins::ActiveModelPlugin
+### Commandoes::Plugins::ActiveModelPlugin
 
 This plugin is used to give commands active model like validation behavior.

@@ -1,4 +1,4 @@
-module Commando
+module Commandoes
   class FakeCommand < IAmACommand
     values do
       string :foo

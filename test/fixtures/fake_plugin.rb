@@ -1,4 +1,4 @@
-module Commando
+module Commandoes
   module Plugins
     module FakePlugin
       module ClassMethods

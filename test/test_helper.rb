@@ -1,5 +1,5 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'commando'
+require 'commandoes'
 
 require_relative './fixtures/fake_command'
 require_relative './fixtures/fake_handler'
