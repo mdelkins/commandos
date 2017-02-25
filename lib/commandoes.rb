@@ -1,8 +1,6 @@
 
 require 'active_model'
-require 'virtus'
 
-require "commandoes/plugins/virtus_plugin"
 require "commandoes/plugins/activemodel_plugin"
 
 require "commandoes/command"
