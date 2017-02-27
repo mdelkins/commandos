@@ -1,7 +1,5 @@
 module Commandoes
   class IAmACommand
-    include ActiveModel::Validations
-
     module ClassMethods
       def use(plugin, *args, &block)
         unless plugins.include? plugin
@@ -20,8 +18,6 @@ module Commandoes
     end
 
     extend ClassMethods
-
     use self
-    use Plugins::ActiveModelPlugin
   end
 end
