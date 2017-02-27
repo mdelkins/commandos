@@ -1,4 +1,4 @@
-module Commandoes
+module Commandos
   class IAmACommand
     module ClassMethods
       def use(plugin, *args, &block)

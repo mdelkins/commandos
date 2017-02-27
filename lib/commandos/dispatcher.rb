@@ -1,4 +1,4 @@
-module Commandoes
+module Commandos
   UnknownCommand   = Class.new StandardError
   RegistryNotFound = Class.new StandardError
 

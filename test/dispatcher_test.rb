@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module Commandoes
+module Commandos
   class DispatcherTest < Minitest::Test
     def subject
       Dispatcher
@@ -13,7 +13,7 @@ module Commandoes
         end
 
         def test_registry_not_found_raised
-          assert_raises Commandoes::RegistryNotFound do
+          assert_raises Commandos::RegistryNotFound do
             sut.dispatch nil
           end
         end
@@ -27,7 +27,7 @@ module Commandoes
 
         class AndCommandValueIsNotAKindOfIAmACommand < WithARegistry
           def test_unknown_command_raised
-            assert_raises Commandoes::UnknownCommand do
+            assert_raises Commandos::UnknownCommand do
               sut.dispatch nil
             end
           end

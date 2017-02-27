@@ -1,4 +1,4 @@
-module Commandoes
+module Commandos
   class FakeCommand < IAmACommand
     attr_reader :foo, :bar
 
