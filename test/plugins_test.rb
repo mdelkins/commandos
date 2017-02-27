@@ -1,4 +1,4 @@
-module Commandoes
+module Commandos
   class PluginTest < Minitest::Test
     def subject
       Plugins::FakePlugin

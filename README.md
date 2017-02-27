@@ -1,6 +1,6 @@
-# COMMANDOES
+# COMMANDOS
 
-Commandoes is a project designed to help any ruby app use the command pattern to
+Commandos is a project designed to help any ruby app use the command pattern to
 change state.
 
 ## PREREQUISITES
@@ -14,7 +14,7 @@ change state.
 In your Gemfile
 
 ```
-gem 'commandoes'
+gem 'Commandos'
 ```
 
 ## EXAMPLES
@@ -24,7 +24,7 @@ gem 'commandoes'
 
 ## PLUGINS
 
-Commandoes uses a plugin system similar to
+Commandos uses a plugin system similar to
 [sequel](https://github.com/jeremyevans/sequel) or
 [roda](https://github.com/jeremyevans/roda) to extend the behavior of your
 command objects.
@@ -32,7 +32,7 @@ command objects.
 ### EXAMPLE OF A CUSTOM PLUGIN
 
 ```ruby
-module Commandoes
+module Commandos
   module Plugins
     module ExamplePlugin
       module ClassMethods
@@ -50,6 +50,6 @@ class.  Any method in the `InstanceMethods` module will be injected into
 instances of `IAmACommand` objects.
 
 
-### Commandoes::Plugins::ActiveModelPlugin
+### Commandos::Plugins::ActiveModelPlugin
 
 This plugin is used to give commands active model like validation behavior.

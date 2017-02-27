@@ -1,4 +1,4 @@
-module Commandoes
+module Commandos
   class FakeCommandRegistry < IAmACommandRegistry
     def initialize
       register FakeCommand, handler: FakeHandler
