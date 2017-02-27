@@ -4,17 +4,14 @@ Commandos is a project designed to help any ruby app use the command pattern to
 change state.
 
 ## PREREQUISITES
-* ruby-2.3.1
-
-## DEPENDENCIES
-* ActiveModel::Validations
+* ruby-2.4.0
 
 ## INSTALLATION
 
 In your Gemfile
 
 ```
-gem 'Commandos'
+gem 'commandos'
 ```
 
 ## EXAMPLES
@@ -48,8 +45,3 @@ end
 Any method in the `ClassMethods` module will be injected into the `IAmACommand`
 class.  Any method in the `InstanceMethods` module will be injected into
 instances of `IAmACommand` objects.
-
-
-### Commandos::Plugins::ActiveModelPlugin
-
-This plugin is used to give commands active model like validation behavior.
