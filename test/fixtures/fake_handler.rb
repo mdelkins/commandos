@@ -5,7 +5,6 @@ module Commandoes
     end
 
     def call
-      return command unless command.valid?
       true
     end
 

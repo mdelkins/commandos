@@ -6,8 +6,5 @@ module Commandoes
       @foo = foo
       @bar = bar
     end
-
-    validates_presence_of \
-      :foo
   end
 end

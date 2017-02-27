@@ -8,7 +8,7 @@ module Commandoes
     end
 
     def dispatch(command)
-      raise RegistryNotFound unless registry.present?
+      raise RegistryNotFound if registry.nil?
       raise UnknownCommand   unless command.kind_of? IAmACommand
 
       registry.find_by command do |handler|

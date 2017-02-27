@@ -33,16 +33,6 @@ module Commandoes
           end
         end
 
-        class AndCommandIsNotValid < WithARegistry
-          def command
-            @command ||= FakeCommand.new
-          end
-
-          def test_response_is_correct
-            assert_equal command, sut.dispatch(command)
-          end
-        end
-
         class AndCommandIsValid < WithARegistry
           def command
             @command ||= FakeCommand.new foo: :abc
